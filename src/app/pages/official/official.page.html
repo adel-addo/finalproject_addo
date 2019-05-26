@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title color="light">Admin Page</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row justify-content-center>
+      <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+
+        <div text-center>
+          <h4>Add User Role</h4>
+        </div>
+        <ion-row class="login-logo">
+            <ion-col>  <img src="assets/imgs/csuc_logo1.png" /></ion-col>
+          </ion-row>
+        
+          <ion-row class="login-form">
+              <ion-col>
+                <ion-list inset>
+                   
+                    <ion-item id="rounded">
+                        <ion-label fixed>Username</ion-label>
+                        <ion-input type="text"  [(ngModel)]="username" value=""></ion-input>      
+                      </ion-item>
+          
+                  <ion-item id="rounded">
+                    <ion-label fixed>Email</ion-label>
+                    <ion-input type="text"  [(ngModel)]="email" value=""></ion-input>      
+                  </ion-item>
+          
+                  <ion-item>
+                    <ion-label>Select Filetype</ion-label>
+                    <ion-select [(ngModel)]="roles" (ionChange)="searchChanged($event)">
+                      <ion-select-option value="admin">Admin</ion-select-option>
+                      <ion-select-option value="editor"> Editor</ion-select-option>
+                      <ion-select-option value="student"> Student</ion-select-option>
+                    </ion-select>
+                </ion-item>
+                
+                 
+          
+                </ion-list>
+          
+          
+          
+               
+               
+             
+          
+               <ion-row>
+               <ion-col>
+                  <ion-button color="gold"  size="large"  expand="block" (click)="createUser(username,email,roles)" primary class="login-button">Add User</ion-button>
+              </ion-col>
+            </ion-row>
+          
+              </ion-col>
+            </ion-row>
+  
+      
+
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+</ion-content>

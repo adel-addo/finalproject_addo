@@ -1,0 +1,87 @@
+$white: #FFFFFF;
+$grey: #9e9e9e;
+
+$preload-image-bg: rgba(darken($white, 10), .25);
+
+$spinner-size: 28px;
+$spinner-color: $grey;
+   
+     :host {
+     //
+        ion-slides {
+            height:200px;
+           }
+           ion-slide img {
+             height: 0px !important;
+             width: 500px   !important         ;
+           }
+
+           ion-button  {
+          //  height: 0px !important;
+            width: 100%   !important         ;
+          }
+        
+        ion-content {
+        //  background: var(--ion-color-primary);
+         // background-image: url("/assets/imgs/index.jpg");
+          display: flex;
+          flex-direction: column;
+         /// --ion-background-color:rgb(47, 133, 233);
+         --background:  url('/assets/imgs/image4.jpg' )  blue;
+        }
+
+        ion-toolbar {
+          background-color: var(--ion-color-secondary);
+          --background:   var(--ion-color-secondary);
+          }
+  
+        ion-row {
+          align-items: center;
+          text-align: center;
+         // background-color: var(--ion-color-primary);
+        }
+  
+        ion-item {
+            border-radius: 30px !important;
+            padding-left: 10px !important;
+            margin-bottom: 10px;
+           //background-color: var(--ion-color-secondary);
+         // --background: url('/assets/images/index.jpg') ;
+            opacity: 5;
+            font-size: 0.9em;
+        }
+
+        ion-item {
+          //  margin: 2;
+         //  background-color: var(--ion-color-secondary);
+        }
+        ion-input {
+        //  margin: 2;
+         background-color: var(--ion-color-secondary);
+      }
+  
+        ion-list {
+            margin: 2;
+          // background-color: var(--ion-color-secondary);
+        }
+  
+        .login-logo {
+          flex: 2;
+         // background-color: var(--ion-color-gold);
+        }
+  
+        .login-form {
+            flex: 1;
+           // background-color: var(--ion-color-gold);
+        }
+  
+        .create-account {
+          //background-color: var(--ion-color-primary);
+          text-decoration: underline;
+          background:none ;
+        }
+  
+  
+    }
+  
+  

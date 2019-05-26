@@ -1,0 +1,96 @@
+<ion-header>
+
+  <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>
+        CSUC Pinboard
+      </ion-title>
+    </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+   <div padding>
+  <ion-segment [(ngModel)]="cat">
+      <ion-segment-button value="men">
+          Search Notice
+        </ion-segment-button>
+        
+    <ion-segment-button value="women">
+      View Notice
+    </ion-segment-button>
+    </ion-segment>
+</div>
+
+<div [ngSwitch]="cat">
+
+  <ion-list *ngSwitchCase="'men'">
+
+      <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+      <ion-card class="welcome-card" *ngFor="let contact of countryList">
+          <ion-img src={{contact.Image}}></ion-img>
+          <ion-card-header>
+            <ion-card-subtitle>{{contact.Title}}</ion-card-subtitle>
+          
+          </ion-card-header>
+          
+          <ion-card-content>
+
+
+            <p>{{contact.Content}}</p>
+           
+             
+                <p>By <strong>{{contact.Author}}</strong>
+                  <ion-avatar item-right>
+                      <img src="assets/imgs/csuc_logo1.png" />
+                    </ion-avatar>
+                </p>
+          </ion-card-content>
+        </ion-card>
+  </ion-list>
+
+
+  <ion-list *ngSwitchCase="'women'">
+
+
+      <ion-card class="welcome-card" *ngFor="let contact of readingsList | async">
+          <ion-img src={{contact.Image}}></ion-img>
+          <ion-card-header>
+            <ion-card-subtitle>{{contact.Title}}</ion-card-subtitle>
+          
+          </ion-card-header>
+          <ion-card-content>
+            <p>{{contact.Content}}</p>
+           
+             
+                <p>By <strong>{{contact.Author}}</strong>
+                  <ion-avatar item-right>
+                      <img src="assets/imgs/csuc_logo1.png" />
+                    </ion-avatar>
+                </p>
+          </ion-card-content>
+        </ion-card>
+
+
+
+ </ion-list>
+
+
+ 
+
+
+
+
+</div>
+   
+
+ 
+    
+
+ 
+
+</ion-content>
+
+

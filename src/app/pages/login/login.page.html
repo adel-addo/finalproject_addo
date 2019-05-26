@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar color="gold">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title color="light">
+   LOGIN
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-row class="login-logo">
+    <ion-col>  <img src="assets/imgs/csuc_logo1.png" /></ion-col>
+  </ion-row>
+
+  <ion-row class="login-form">
+    <ion-col>
+      <ion-list inset>
+
+         <ion-item>
+          <ion-label><ion-icon name="mail"></ion-icon></ion-label>
+          <ion-input color="light" [(ngModel)]="email"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label><ion-icon name="lock"></ion-icon></ion-label>
+          <ion-input color="light" type="password" [(ngModel)]="password"></ion-input>
+        </ion-item>
+
+      </ion-list>
+
+      <ion-col>
+        
+        <ion-button  color="warning" routerLink="/register"
+         primary class="login-button">Register :)</ion-button>
+        </ion-col>
+     
+   
+
+     <ion-row>
+     <ion-col>
+      <ion-button color="secondary" (click)="signin(email, password)"
+       primary class="login-button">Login :)</ion-button>
+    </ion-col>
+  </ion-row>
+
+  
+
+   
+
+       
+    </ion-col>
+  </ion-row>
+
+   
+
+ 
+</ion-content>

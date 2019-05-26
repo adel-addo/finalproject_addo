@@ -1,0 +1,119 @@
+<ion-header>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-buttons slot="end">
+        <ion-button routerLink="/slides">
+          <ion-icon slot="icon-only" name="add"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title color="light">
+        Media
+      </ion-title>
+    </ion-toolbar>
+  
+   </ion-header>
+  
+  
+  <ion-content padding>
+        
+      
+  <div padding>
+      <ion-segment [(ngModel)]="cat">
+         
+            
+        <ion-segment-button value="women">
+        OPEN FILES
+        </ion-segment-button>
+        </ion-segment>
+    </div>
+    
+    <div [ngSwitch]="cat">
+    
+    
+     
+    
+      <ion-list *ngSwitchCase="'women'">
+          
+
+   
+     
+       
+       
+     
+         
+
+     <div *ngIf="downloadURL | async as url">
+      
+         <ion-button color="warning" expand="full">
+       <a [href]="url" target="_blank" rel="noopener">Download Me!</a>
+     </ion-button>
+
+     </div> 
+
+   <ion-item button *ngFor="let media of  mediaList | async">
+                 
+    <ion-img *ngIf="media.type == 'image'" src={{image}}></ion-img>
+     <ion-label text-wrap>
+       <h3>{{ media.title}}</h3>
+      
+     </ion-label>
+     <input  #myControl [value]="(downloadURL | async)" type="hidden" />
+    <ion-button  *ngIf="media.type == 'video'" color="primary" expand="full" (click)="getUrl(media.path,media.type)"> Get download link</ion-button>
+ 
+    <ion-button  *ngIf="media.type == 'pdf'" color="primary" expand="full" (click)="getUrl(media.path,media.type)">  Get download link</ion-button>
+   <ion-button   *ngIf="media.type == 'image'" color="primary" expand="full" (click)="getUrl(media.path,media.type)"> Display image</ion-button>
+    
+  
+
+
+
+    <ion-button *ngIf="media.type == 'video'" icon-only (click)="streamMedia(myControl.value)">
+      <ion-icon slot="end" *ngIf="media.type == 'video'" name="videocam"></ion-icon>
+    </ion-button>
+   
+    <ion-button *ngIf="media.type == 'pdf'" icon-only (click)="downloadPdf(myControl.value)">
+      <ion-icon slot="end" *ngIf="media.type == 'pdf'" name="paper"></ion-icon>
+     </ion-button>
+
+     <ion-icon slot="end" *ngIf="media.type == 'image'" name="camera"></ion-icon>
+  
+   </ion-item>
+
+
+ 
+  
+    
+    
+     </ion-list>
+    
+    
+     
+    
+    
+    
+    
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+       
+    
+
+
+
+
+
+
+    
+    </ion-content>

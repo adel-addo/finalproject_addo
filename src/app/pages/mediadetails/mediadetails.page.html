@@ -1,0 +1,306 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/slides">
+        <ion-icon slot="icon-only" name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title color="light">
+    Official Website
+    </ion-title>
+  </ion-toolbar>
+
+  
+</ion-header>
+
+
+<ion-content padding>
+    
+  
+  <div padding>
+    <ion-segment [(ngModel)]="cat">
+        <ion-segment-button value="men">
+            Contact Us
+          </ion-segment-button>
+
+          <ion-segment-button value="man">
+            Email Us
+          </ion-segment-button>
+          
+      <ion-segment-button value="women">
+        Quick links
+      </ion-segment-button>
+      </ion-segment>
+  </div>
+  
+  <div [ngSwitch]="cat">
+
+      <ion-list *ngSwitchCase="'men'">
+     
+            
+        
+         
+
+            <ion-card>
+                <ion-card-header>Contact Technical Support</ion-card-header>
+                <ion-card-content>
+                  <img [src]="currentImage" *ngIf="currentImage" />
+                  
+                  <ion-button color="secondary"  (click)="call('233247757690')"
+                       primary class="login-button">Call Support
+                       <ion-icon name="call"></ion-icon>
+      
+                      </ion-button>
+                </ion-card-content>
+              </ion-card> 
+
+              <ion-card>
+                  <ion-card-header>Contact CSUC Administration</ion-card-header>
+                  <ion-card-content>
+                    <img [src]="currentImage" *ngIf="currentImage" />
+                    
+                    <ion-button color="secondary"  (click)="call('233501500302')"
+                         primary class="login-button">Call 
+                         <ion-icon name="call"></ion-icon>
+        
+                        </ion-button>
+                  </ion-card-content>
+                </ion-card> 
+
+              <ion-card>
+                  <ion-card-header>Contact CSUC Info Desk</ion-card-header>
+                  <ion-card-content>
+                    <img [src]="currentImage" *ngIf="currentImage" />
+                    
+                    <ion-button color="secondary"  (click)="call('233322039258 ')"
+                         primary class="login-button">Call 
+                         <ion-icon name="call"></ion-icon>
+        
+                        </ion-button>
+                  </ion-card-content>
+                </ion-card> 
+
+
+              <ion-card>
+                  <ion-card-header>Contact CSUC Help Desk</ion-card-header>
+                  <ion-card-content>
+                    <img [src]="currentImage" *ngIf="currentImage" />
+                    
+                    <ion-button color="secondary"  (click)="call('233322028781')"
+                         primary class="login-button">Call 
+                         <ion-icon name="call"></ion-icon>
+        
+                        </ion-button>
+                  </ion-card-content>
+                </ion-card> 
+  
+      
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+           
+        </ion-list>
+  
+    <ion-list *ngSwitchCase="'man'">
+     
+    
+
+      
+
+
+      <ion-grid>
+        <ion-row justify-content-center>
+          <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+            <div text-center>
+              <h4>Contact Form</h4>
+            </div>
+            <div padding>
+                <ion-item id="rounded">
+                    <ion-label fixed>Title</ion-label>
+                    <ion-input type="text"  [(ngModel)]="title" value=""></ion-input>      
+                  </ion-item>
+      
+                  
+                  <ion-item id="rounded">
+                      <ion-label fixed>Message</ion-label>
+                      <ion-input type="text"  [(ngModel)]="message" value=""></ion-input>      
+                    </ion-item>
+      
+              <ion-item>
+                  <ion-label>Select Contact</ion-label>
+                  <ion-select [(ngModel)]="type" (ionChange)="searchChanged($event)">
+                    
+                    <ion-select-option value="andybampoe.ad@gmail.com">Technical Support </ion-select-option>
+                    <ion-select-option value="info@csuc.edu.gh"> Computer Science Department</ion-select-option>
+                    <ion-select-option value="info@csuc.edu.gh">Info desk</ion-select-option>
+                    <ion-select-option value="csc@africaonline.com.gh"> Administration</ion-select-option>
+                  </ion-select>
+              </ion-item>
+            </div>
+      
+            <div padding>
+             
+              
+                <ion-button color="secondary"  (click)="captureImage()"
+                           primary class="login-button">Select  Image Attachment</ion-button>
+
+                                     
+
+              
+              <ion-button color="warning"  size="large"  expand="block" (click)="upload(title,message,type)" primary class="login-button">Email</ion-button>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+
+
+
+
+
+
+
+
+
+
+
+       
+    </ion-list>
+  
+  
+    <ion-list *ngSwitchCase="'women'">
+        
+              
+       
+
+
+        <ion-card class="welcome-card">
+            <ion-img src={{contact.Image}}></ion-img>
+            <ion-card-header>
+               
+                <ion-button color="secondary" (click)="open('http://www.csuc.edu.gh/')"
+                primary class="login-button">Open Csuc website</ion-button>
+            </ion-card-header>
+            <ion-card-content>
+            
+             
+                   
+                        <img src='http://www.csuc.edu.gh/wp-content/uploads/2019/03/Alumni-banner.jpg'/>
+                    
+                
+            </ion-card-content>
+
+            
+          </ion-card>
+
+
+          <ion-card class="welcome-card">
+            <ion-img src={{contact.Image}}></ion-img>
+            <ion-card-header>
+               
+                <ion-button color="secondary" (click)="open('http://student.csuc.edu.gh/Account/Login?ReturnUrl=%2F#')"
+                primary class="login-button">Students Portal</ion-button>
+            </ion-card-header>
+            <ion-card-content>
+            
+             
+                   
+                        <img src='assets/imgs/studentportal.JPG'/>
+                    
+                
+            </ion-card-content>
+
+            
+          </ion-card>
+
+
+
+
+
+          <ion-card >
+             
+              <ion-card-header>
+                 
+                  <ion-button color="secondary" (click)="open('http://www.csuc.edu.gh/academics/undergraduate-programmes/')"
+                  primary class="login-button">Programmes Offered</ion-button>
+              </ion-card-header>
+              <ion-card-content>
+              
+               
+                     
+                          <img src='http://www.csuc.edu.gh/wp-content/uploads/2019/03/New-Programmes.jpg'/>
+                      
+                  
+              </ion-card-content>
+  
+              
+            </ion-card>
+
+
+            <ion-card >
+             
+                <ion-card-header>
+                   
+                    <ion-button color="secondary" (click)="open('http://www.csuc.edu.gh/2015/12/14/schedule-of-fees-2/')"
+                    primary class="login-button">Schedule of fees</ion-button>
+                </ion-card-header>
+                <ion-card-content>
+                
+                 
+                       
+                            <img src='http://www.csuc.edu.gh/wp-content/uploads/2019/04/Admin-Banner.jpg'/>
+                        
+                    
+                </ion-card-content>
+    
+                
+              </ion-card>
+
+
+          
+
+
+
+</ion-list>
+  
+  
+
+  
+  
+   
+  
+  
+  
+  
+  </div>
+     
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+  
+  </ion-content>
